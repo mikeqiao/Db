@@ -9,9 +9,16 @@ import (
 	"github.com/mikeqiao/Db/config"
 )
 
+var R *CRedis
+
 type CRedis struct {
 	Pool *redis.Pool
 	Life uint32
+}
+
+func init() {
+	R = new(CRedis)
+	R.InitDB()
 }
 
 func (r *CRedis) InitDB() {
